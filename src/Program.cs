@@ -10,8 +10,7 @@ namespace src
             FileHandler f = new FileHandler();
             f.readPopulation(g, "../doc/Populasi.txt");
             f.readGraph(g, "../doc/Graf.txt");
-            // g.printCity();
-            // System.Console.WriteLine(g.initialCity);
+            g.printAll();
             Console.WriteLine("Hello World!");
         }
     }
