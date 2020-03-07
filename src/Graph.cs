@@ -20,7 +20,7 @@ namespace src
             this.listOfNeighbor = new List<Neighbor>();
             this.cityName = cityName;
             this.population = population;
-            this.infectedDay = 1;
+            this.infectedDay = 0;
             this.infectedDuration = input - this.infectedDay;
             this.infectedPopulation = 0;
             this.infected = false;
@@ -37,6 +37,7 @@ namespace src
             System.Console.WriteLine("Population: " + population);
             System.Console.WriteLine("Infected Day: " + infectedDay);
             System.Console.WriteLine("Infected Population: " + infectedPopulation);
+            System.Console.WriteLine("Infected?: " + infected);
         }
 
         public void printNeighbor()

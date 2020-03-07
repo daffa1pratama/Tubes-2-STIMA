@@ -14,6 +14,7 @@ namespace src
             g.printAll();
             Console.WriteLine("Hello World!");
             g.BFS(input);
+            g.printAll();
         }
     }
 }
