@@ -144,7 +144,7 @@ namespace src
         {
             // Inisialisasi Queue Awal
             Queue<Tuple<char, char>> QueueBFS = new Queue<Tuple<char, char>>();
-            
+            listOfCity.Find(x => x.cityName == this.initialCity).infected = true;
             foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == this.initialCity).listOfNeighbor)
             {
                 Tuple<char, char> init = new Tuple<char, char>(this.initialCity, neighbor.neighborName);                
