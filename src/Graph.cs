@@ -56,7 +56,8 @@ namespace src
 
         public int lamaInfeksi()
         {
-            int result = -4; // * Math.Log((this.population / infectedPopulation - 1) * (1 / (x - 1)));
+            int result = Convert.ToInt32(-4 * Math.Log((this.population / infectedPopulation - 1) * (1 / (this.population - 1))));
+            System.Console.WriteLine("lama INfeksi : " + result);
             return result;
         }
     }
