@@ -11,10 +11,7 @@ namespace src
             FileHandler f = new FileHandler();
             f.readPopulation(g, "../doc/Populasi.txt", input);
             f.readGraph(g, "../doc/Graf.txt");
-            g.printAll();
-            Console.WriteLine("Hello World!");
             g.BFS(input);
-            g.printAll();
         }
     }
 }

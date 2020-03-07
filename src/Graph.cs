@@ -144,6 +144,9 @@ namespace src
             // Inisialisasi Queue Awal
             Queue<Tuple<char, char>> QueueBFS = new Queue<Tuple<char, char>>();
             listOfCity.Find(x => x.cityName == this.initialCity).infected = true;
+
+            this.printAll();
+            
             foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == this.initialCity).listOfNeighbor)
             {
                 Tuple<char, char> init = new Tuple<char, char>(this.initialCity, neighbor.neighborName);                
@@ -185,7 +188,7 @@ namespace src
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay = listOfCity.Find(x => x.cityName == cityToInfectName).lamaInfeksi() - listOfCity.Find(x=>x.cityName == infectingCityName).infectedDay;
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedDuration = input - listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay;
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedPopulation = listOfCity.Find(x => x.cityName == cityToInfectName).calcInfected();
-
+                    
                 }
 
                 /* Kalo kota yang akan diinfeksi sudah terinfeksi sebelumnya */
@@ -203,7 +206,9 @@ namespace src
                     printQueueBFS(QueueBFS);
 
                 }
+
             }
+            this.printAll();
         }
     }
 }
