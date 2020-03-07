@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\Tubes-2-STIMA\\src\\src.csproj": {}
+    "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\Tubes-2-STIMA\\src\\src.csproj": {
+    "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Tubes-2-STIMA\\src\\src.csproj",
+        "projectUniqueName": "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Tubes-2-STIMA\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Tubes-2-STIMA\\src\\obj\\",
+        "projectPath": "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj",
+        "packagesPath": "C:\\Users\\Harry\\.nuget\\packages\\",
+        "outputPath": "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Harry\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
