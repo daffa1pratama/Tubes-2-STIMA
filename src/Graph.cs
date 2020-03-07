@@ -12,7 +12,7 @@ namespace src
         public int infectedDay { get; set; } // Hari awal terinfeksi ; T(A)
         public int infectedDuration {get; set;} // Durasi Terinfeksi hingga akhir perhitungan; t(A)
         public double infectedPopulation { get; set; } // Populasi yang terinfeksi
-        public bool infected { get; set; } // Kondisi kota pernah dikunjungi
+        public bool infected { get; set; } // Apakah kota sudah terinfeksi
 
         // METHOD
         public City(char cityName, double population, int input)
@@ -22,7 +22,8 @@ namespace src
             this.population = population;
             this.infectedDay = 1;
             this.infectedDuration = input - this.infectedDay;
-            this.infectedPopulation = calcInfected();
+            this.infectedPopulation = 0;
+            this.infected = false;
         }
         public double calcInfected()
         {
@@ -52,11 +53,11 @@ namespace src
             return (S > 1);
         }
 
-        /* public int hitungLamaInfeksi()
+        public int lamaInfeksi()
         {
-            int result = -4 * Math.log((city.population / infectedPopulation - 1) * (1 / (x - 1)));
-
-        } */
+            int result = -4; // * Math.Log((this.population / infectedPopulation - 1) * (1 / (x - 1)));
+            return result;
+        }
     }
 
     class Neighbor
@@ -128,7 +129,17 @@ namespace src
             }
         }
 
-        public void BFS()
+        public void printQueueBFS(Queue<Tuple<char,char>> QueueBFS){
+            System.Console.Write("Queue : {");
+            foreach (Tuple<char,char> elmt in QueueBFS)
+            {
+                System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
+
+            }
+            System.Console.WriteLine("}");
+        }
+
+        public void BFS(int input)
         {
             // Inisialisasi Queue Awal
             Queue<Tuple<char, char>> QueueBFS = new Queue<Tuple<char, char>>();
@@ -140,66 +151,60 @@ namespace src
             }
 
             // Debug Inisialisasi Queue Awal
-            System.Console.Write("Queue : {");
-            foreach (Tuple<char,char> elmt in QueueBFS)
-            {
-                System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
-
-            }
-            System.Console.WriteLine("}");
-            System.Console.WriteLine("Dah ini tahap inisiasi");
+            printQueueBFS(QueueBFS);
+            System.Console.WriteLine("============== PERSEBARAN DIMULAI =================");
 
             // Proses BFS
             while(QueueBFS.Count != 0)
             {
                 Tuple<char, char> temp = QueueBFS.Dequeue();
-                char infectingCity = temp.Item1;
-                char cityToInfect = temp.Item2;
+                char infectingCityName = temp.Item1;
+                char cityToInfectName = temp.Item2;
 
-                /* Kalo kota berhasil menginfeksi tetangganya dan tetangganya belum terinfeksi*/
-                if ((listOfCity.Find(x=>x.cityName == infectingCity).infecting(listOfCity.Find(x => x.cityName == infectingCity).listOfNeighbor.Find(x => x.neighborName == cityToInfect))) && (!listOfCity.Find(x => x.cityName == cityToInfect).infected)){
-                    System.Console.WriteLine("{0} berhasil menginfeksi {1}", infectingCity, cityToInfect);
+                /* Kalo berhasil menginfeksi kota dan kota yang terinfeksi belum terinfeksi sebelumnya */
+                if ((listOfCity.Find(x=>x.cityName == infectingCityName).infecting(listOfCity.Find(x => x.cityName == infectingCityName).listOfNeighbor.Find(x => x.neighborName == cityToInfectName))) && (!listOfCity.Find(x => x.cityName == cityToInfectName).infected)){
+
+                    System.Console.WriteLine("{0} berhasil menginfeksi {1}", infectingCityName, cityToInfectName);
+
+                    /* ======================== QUEUE MANAGER ========================== */
+
                     /* Tambahkan <kota terinfeksi,tetangga dari kota terinfeksi> ke dalam queue */
-                    foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == cityToInfect).listOfNeighbor)
+                    foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == cityToInfectName).listOfNeighbor)
                     {
                         char infectedNeighbors = neighbor.neighborName;
-                        Tuple<char, char> newTuple = new Tuple<char, char>(cityToInfect, infectedNeighbors);
+                        Tuple<char, char> newTuple = new Tuple<char, char>(cityToInfectName, infectedNeighbors);
                         QueueBFS.Enqueue(newTuple);
-
-                        /* Debug Queue */ 
-                        System.Console.Write("Queue : {");
-                        foreach (Tuple<char,char> elmt in QueueBFS)
-                        {
-                            System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
-                        }
-                        System.Console.WriteLine("}"); 
                     }
+                    /* Debug Queue */ 
+                        printQueueBFS(QueueBFS);
+
+                    /* ====================== ATTRIBUTE CHANGE MANAGER =========================== */
+                    // City * infectedCity = &listOfCity.Find(x => x.cityName == cityToInfectName);
+                    // City * infectingCity = &listOfCity.Find(x=>x.cityName == infectingCityName);
+                    listOfCity.Find(x => x.cityName == cityToInfectName).infected = true;
+                    listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay = listOfCity.Find(x => x.cityName == cityToInfectName).lamaInfeksi() - listOfCity.Find(x=>x.cityName == infectingCityName).infectedDay;
+                    listOfCity.Find(x => x.cityName == cityToInfectName).infectedDuration = input - listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay;
+                    listOfCity.Find(x => x.cityName == cityToInfectName).infectedPopulation = listOfCity.Find(x => x.cityName == cityToInfectName).calcInfected();
+
                 }
+
                 /* Kalo kota yang akan diinfeksi sudah terinfeksi sebelumnya */
-                else if (listOfCity.Find(x => x.cityName == cityToInfect).infected){
-                    System.Console.WriteLine("Kota {0} sudah terinfeksi sebelumnya! Serangan tidak akan berpengaruh", cityToInfect);
+                else if (listOfCity.Find(x => x.cityName == cityToInfectName).infected){
+
+                    System.Console.WriteLine("Kota {0} sudah terinfeksi sebelumnya! Serangan tidak akan berpengaruh", cityToInfectName);
+                    printQueueBFS(QueueBFS);
+
                 }
+
                 /* Kalo kota tidak berhasil diinfeksi */
                 else {
-                    System.Console.WriteLine("{0} tidak berhasil menginfeksi {1}", infectingCity, cityToInfect);
+
+                    System.Console.WriteLine("{0} tidak berhasil menginfeksi {1}", infectingCityName, cityToInfectName);
+                    printQueueBFS(QueueBFS);
+
                 }
-                // Check city infecting
-                
-
-
             }
-
-            System.Console.Write("Queue : {");
-            foreach (Tuple<char,char> elmt in QueueBFS)
-            {
-                System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
-
-            }
-            System.Console.WriteLine("}");
-            
         }
-
-
     }
 }
 

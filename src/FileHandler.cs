@@ -38,12 +38,13 @@ namespace src
             foreach (string item in temp)
             {
                 string[] splitted = item.Split(' ');
-                City city = new City(Convert.ToChar(splitted[0]), Convert.ToDouble(splitted[1]),input);
+                City city = new City(Convert.ToChar(splitted[0]), Convert.ToDouble(splitted[1]), input);
                 g.listOfCity.Add(city);
             }
 
             lines = lines[0].Split(' ');            
             g.initialCity = Convert.ToChar(lines[1]);
+            
         }
     }
 }
