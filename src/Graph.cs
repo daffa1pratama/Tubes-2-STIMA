@@ -15,12 +15,12 @@ namespace src
         public bool isVisited { get; set; } // Kondisi kota pernah dikunjungi
 
         // METHOD
-        public City(char cityName, double population, int infectedDay, int input)
+        public City(char cityName, double population, int input)
         {
             this.listOfNeighbor = new List<Neighbor>();
             this.cityName = cityName;
             this.population = population;
-            this.infectedDay = infectedDay;
+            this.infectedDay = 1;
             this.infectedDuration = input - this.infectedDay;
             this.infectedPopulation = calcInfected();
         }
@@ -139,7 +139,11 @@ namespace src
 
             }
             System.Console.WriteLine(")");
+
+
         }
+
+
     }
 }
 

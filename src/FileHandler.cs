@@ -27,7 +27,7 @@ namespace src
             }
         }
 
-        public void readPopulation(Graph g, string filepath)
+        public void readPopulation(Graph g, string filepath, int input)
         {
             string[] lines = File.ReadAllLines(filepath);
             string[] temp = new string[lines.Length - 1];
@@ -39,7 +39,7 @@ namespace src
             foreach (string item in temp)
             {
                 string[] splitted = item.Split(' ');
-                City city = new City(Convert.ToChar(splitted[0]), Convert.ToDouble(splitted[1]),1,1);
+                City city = new City(Convert.ToChar(splitted[0]), Convert.ToDouble(splitted[1]),input);
                 g.listOfCity.Add(city);
             }
 
