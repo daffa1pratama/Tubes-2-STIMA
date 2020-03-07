@@ -27,6 +27,7 @@ namespace src
         }
         public double calcInfected()
         {
+
             double temp = 1 + ((this.population - 1) * Math.Exp(-0.25 * this.infectedDuration));
             return this.population / temp;
         }
@@ -35,9 +36,12 @@ namespace src
         {
             System.Console.WriteLine("City Name: " + cityName);
             System.Console.WriteLine("Population: " + population);
-            System.Console.WriteLine("Infected Day: " + infectedDay);
-            System.Console.WriteLine("Infected Population: " + infectedPopulation);
             System.Console.WriteLine("Infected?: " + infected);
+            if(infected){
+                System.Console.WriteLine("Infected Day: " + infectedDay);
+                System.Console.WriteLine("Infected Duration : " + infectedDuration);
+                System.Console.WriteLine("Infected Population: " + infectedPopulation);
+            }
         }
 
         public void printNeighbor()
@@ -54,7 +58,7 @@ namespace src
             return (S > 1);
         }
 
-        public int lamaInfeksi()
+        public int lamaInfeksi(Neighbor N)
         {
             if (this.infectedPopulation == 0)
             {
@@ -153,6 +157,7 @@ namespace src
             // Inisialisasi Queue Awal
             Queue<Tuple<char, char>> QueueBFS = new Queue<Tuple<char, char>>();
             listOfCity.Find(x => x.cityName == this.initialCity).infected = true;
+            listOfCity.Find(x => x.cityName == this.initialCity).infectedPopulation = listOfCity.Find(x => x.cityName == this.initialCity).calcInfected();
 
             this.printAll();
             
@@ -191,11 +196,11 @@ namespace src
                         printQueueBFS(QueueBFS);
 
                     /* ====================== ATTRIBUTE CHANGE MANAGER =========================== */
-                    // City * infectedCity = &listOfCity.Find(x => x.cityName == cityToInfectName);
-                    // City * infectingCity = &listOfCity.Find(x=>x.cityName == infectingCityName);
                     listOfCity.Find(x => x.cityName == cityToInfectName).infected = true;
-                    listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay = listOfCity.Find(x => x.cityName == cityToInfectName).lamaInfeksi() - listOfCity.Find(x=>x.cityName == infectingCityName).infectedDay;
+                    listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay = listOfCity.Find(x => x.cityName == infectingCityName).lamaInfeksi(listOfCity.Find(x => x.cityName == infectingCityName).listOfNeighbor.Find(x => x.neighborName == cityToInfectName)) + listOfCity.Find(x=>x.cityName == infectingCityName).infectedDay;
+                    System.Console.WriteLine("Berapa nih Infected Day? " + listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay);
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedDuration = input - listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay;
+                    System.Console.WriteLine("Berapa nih Infected Duration? " + listOfCity.Find(x => x.cityName == cityToInfectName).infectedDuration);
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedPopulation = listOfCity.Find(x => x.cityName == cityToInfectName).calcInfected();
                     
                 }
