@@ -52,6 +52,11 @@ namespace src
             return (S > 1);
         }
 
+        /* public int hitungLamaInfeksi()
+        {
+            int result = -4 * Math.log((city.population / infectedPopulation - 1) * (1 / (x - 1)));
+
+        } */
     }
 
     class Neighbor
@@ -123,6 +128,24 @@ namespace src
                 System.Console.WriteLine("=========================");
             }
         }
+
+        public Tuple<char,char> constructTuple(City A, Neighbor B)
+        {
+            foreach (City city in listOfCity)
+            {
+                if (A.cityName == city.cityName)
+                {
+                    foreach (Neighbor neighbor in city.listOfNeighbor)
+                    {
+                        var Elmt = Tuple.Create(city.cityName, neighbor.neighborName);
+                    }
+                    break;
+                }
+                break;
+            }
+            return Elmt;
+        }
+
         public void BFS()
         {
             /* Inisialisasi Queue Awal */
@@ -162,7 +185,24 @@ namespace src
                         {
                             if(neighbor.neighborName == tupleElmt.Item2)
                             {
-                                if(city.infecting())
+                                /* Apabila Berhasil Menginfeksi */
+                                if (city.infecting(neighbor))
+                                {
+                                    /* Add Neighbor to Queue */
+                                    foreach(City InfectedCity in listOfCity)
+                                    {
+                                        if(InfectedCity.cityName == tupleElmt.Item2)
+                                        {
+
+                                        }
+                                        break;
+                                    }
+
+                                    /* Ubah Elemen City yang Terinfeksi */
+                               
+
+                                    
+                                }
                             }
                             break;
                         }
