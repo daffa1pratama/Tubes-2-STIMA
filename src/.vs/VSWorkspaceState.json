@@ -1,8 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\src"
+    ""
   ],
-  "SelectedNode": "\\src\\Graph.cs",
+  "SelectedNode": "\\src.csproj",
   "PreviewInSolutionExplorer": false
 }
