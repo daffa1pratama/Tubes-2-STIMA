@@ -20,3 +20,14 @@ D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfoInput
 D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo.cs
 D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.dll
 D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.pdb
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.exe
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.deps.json
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.runtimeconfig.json
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.runtimeconfig.dev.json
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.dll
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.pdb
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.csprojAssemblyReference.cache
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfoInputs.cache
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo.cs
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.dll
+C:\Users\mdaffad\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.pdb

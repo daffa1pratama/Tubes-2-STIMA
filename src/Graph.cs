@@ -56,9 +56,18 @@ namespace src
 
         public int lamaInfeksi()
         {
-            int result = Convert.ToInt32(-4 * Math.Log((this.population / infectedPopulation - 1) * (1 / (this.population - 1))));
+            if (this.infectedPopulation == 0)
+            {
+                System.Console.WriteLine("asdasd");
+                return 0;    
+            }
+            double res = (-4 * Math.Log((this.population / this.infectedPopulation - 1) * (1 / (this.population - 1)), 2.781));
+            System.Console.WriteLine("this.population : " + this.population);
+            System.Console.WriteLine("this.infectedpopulation : " + this.infectedPopulation);
+            System.Console.WriteLine("lama INfeksi : " + res);
+            int result = Convert.ToInt32(res);
             System.Console.WriteLine("lama INfeksi : " + result);
-            return result;
+            return  result;
         }
     }
 

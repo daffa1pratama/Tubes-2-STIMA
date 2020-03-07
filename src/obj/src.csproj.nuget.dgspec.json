@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj": {}
+    "C:\\Users\\mdaffad\\Desktop\\Tubes-2-STIMA\\src\\src.csproj": {}
   },
   "projects": {
-    "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj": {
+    "C:\\Users\\mdaffad\\Desktop\\Tubes-2-STIMA\\src\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj",
+        "projectUniqueName": "C:\\Users\\mdaffad\\Desktop\\Tubes-2-STIMA\\src\\src.csproj",
         "projectName": "src",
-        "projectPath": "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\Harry\\.nuget\\packages\\",
-        "outputPath": "D:\\Kuliah\\Github\\Tubes-2-STIMA\\src\\obj\\",
+        "projectPath": "C:\\Users\\mdaffad\\Desktop\\Tubes-2-STIMA\\src\\src.csproj",
+        "packagesPath": "C:\\Users\\mdaffad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mdaffad\\Desktop\\Tubes-2-STIMA\\src\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Harry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mdaffad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
