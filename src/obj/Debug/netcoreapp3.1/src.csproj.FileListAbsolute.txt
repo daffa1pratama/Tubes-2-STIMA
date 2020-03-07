@@ -1,0 +1,3 @@
+C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfoInputs.cache
+C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo.cs
