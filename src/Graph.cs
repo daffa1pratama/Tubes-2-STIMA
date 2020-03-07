@@ -61,11 +61,8 @@ namespace src
         public int lamaInfeksi(Neighbor N)
         {
             int result = Convert.ToInt32(-4 * Math.Log(( (this.population * N.travelProb - 1) / (this.population - 1)), Math.Exp(1)));
-            System.Console.WriteLine("Populasi : " + this.population);
-            System.Console.WriteLine("Probability : " + N.travelProb);
-            // System.Console.WriteLine("Pembilang : " + this.population *);
             System.Console.WriteLine("Lama Infeksi : " + result);
-            return result;
+            return result + 1;
         }
     }
 
@@ -87,19 +84,6 @@ namespace src
             this.neighborName = neighborName;
             this.travelProb = travelProb;
         }
-
-        // public void isInfected(double infectedPopulation) //parameter city asal
-        // {
-        //     double S = infectedPopulation * travelProb;
-        //     if (S > 1) 
-        //     {
-        //         this.infected = true;    
-        //         
-                //  city.infectedDay = -4 * Math.log((city.population/infectedPopulation - 1) * (1/(x-1)));
-                // 
-        //     }
-        // }
-        
     }
 
     class Graph 
@@ -153,6 +137,8 @@ namespace src
             listOfCity.Find(x => x.cityName == this.initialCity).infected = true;
             listOfCity.Find(x => x.cityName == this.initialCity).infectedPopulation = listOfCity.Find(x => x.cityName == this.initialCity).calcInfected();
 
+            /* Pencetakan Atribut Awal */
+            System.Console.WriteLine("========== ATRIBUT AWAL ===========");
             this.printAll();
             
             foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == this.initialCity).listOfNeighbor)
@@ -162,7 +148,11 @@ namespace src
             }
 
             // Debug Inisialisasi Queue Awal
+            System.Console.WriteLine();
+            System.Console.WriteLine("++++++ QUEUE BFS AWAL ++++++");
             printQueueBFS(QueueBFS);
+            System.Console.WriteLine("++++++++++++++++++++++++++++");
+            System.Console.WriteLine();
             System.Console.WriteLine("============== PERSEBARAN DIMULAI =================");
 
             // Proses BFS
@@ -192,9 +182,7 @@ namespace src
                     /* ====================== ATTRIBUTE CHANGE MANAGER =========================== */
                     listOfCity.Find(x => x.cityName == cityToInfectName).infected = true;
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay = listOfCity.Find(x => x.cityName == infectingCityName).lamaInfeksi(listOfCity.Find(x => x.cityName == infectingCityName).listOfNeighbor.Find(x => x.neighborName == cityToInfectName)) + listOfCity.Find(x=>x.cityName == infectingCityName).infectedDay;
-                    System.Console.WriteLine("Berapa nih Infected Day? " + listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay);
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedDuration = input - listOfCity.Find(x => x.cityName == cityToInfectName).infectedDay;
-                    System.Console.WriteLine("Berapa nih Infected Duration? " + listOfCity.Find(x => x.cityName == cityToInfectName).infectedDuration);
                     listOfCity.Find(x => x.cityName == cityToInfectName).infectedPopulation = listOfCity.Find(x => x.cityName == cityToInfectName).calcInfected();
                     
                 }
@@ -216,6 +204,8 @@ namespace src
                 }
 
             }
+            System.Console.WriteLine();
+            System.Console.WriteLine("========== ATRIBUT AKHIR ==========");
             this.printAll();
         }
     }
