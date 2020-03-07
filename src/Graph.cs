@@ -128,89 +128,53 @@ namespace src
             }
         }
 
-        public Tuple<char,char> constructTuple(City A, Neighbor B)
-        {
-            foreach (City city in listOfCity)
-            {
-                if (A.cityName == city.cityName)
-                {
-                    foreach (Neighbor neighbor in city.listOfNeighbor)
-                    {
-                        var Elmt = Tuple.Create(city.cityName, neighbor.neighborName);
-                    }
-                    break;
-                }
-                break;
-            }
-            return Elmt;
-        }
-
         public void BFS()
         {
-            /* Inisialisasi Queue Awal */
-            Queue<Tuple<char,char>> QueueBFS = new Queue<Tuple<char,char>>();
-            foreach (City city in listOfCity)
+            // Inisialisasi Queue Awal
+            Queue<Tuple<char, char>> QueueBFS = new Queue<Tuple<char, char>>();
+            
+            foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == this.initialCity).listOfNeighbor)
             {
-                if (this.initialCity == city.cityName)
-                {
-                    foreach (Neighbor neighbor in city.listOfNeighbor)
-                    {
-                        var QueueElmt = Tuple.Create(city.cityName, neighbor.neighborName);
-                        QueueBFS.Enqueue(QueueElmt);
-                    }
-                }
-                break;
+                Tuple<char, char> init = new Tuple<char, char>(this.initialCity, neighbor.neighborName);                
+                QueueBFS.Enqueue(init);
             }
 
-            /* Debug Inisialisasi Queue Awal */
-            System.Console.Write("Queue : (");
+            // Debug Inisialisasi Queue Awal
+            System.Console.Write("Queue : {");
             foreach (Tuple<char,char> elmt in QueueBFS)
             {
                 System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
 
             }
-            System.Console.WriteLine(")");
+            System.Console.WriteLine("}");
 
-            /* Proses BFS */
+            System.Console.WriteLine(QueueBFS.Count);
+            // Proses BFS
             while(QueueBFS.Count != 0)
             {
-                Tuple<char, char> tupleElmt = QueueBFS.Dequeue;
+                Tuple<char, char> temp = QueueBFS.Dequeue();
+                char newCity = temp.Item2;
                 
-                foreach(City city in listOfCity)
+                // Check city infecting
+                foreach (Neighbor neighbor in listOfCity.Find(x => x.cityName == newCity).listOfNeighbor)
                 {
-                    if(city.cityName == tupleElmt.Item1)
-                    {
-                        foreach(Neighbor neighbor in city.listOfNeighbor)
-                        {
-                            if(neighbor.neighborName == tupleElmt.Item2)
-                            {
-                                /* Apabila Berhasil Menginfeksi */
-                                if (city.infecting(neighbor))
-                                {
-                                    /* Add Neighbor to Queue */
-                                    foreach(City InfectedCity in listOfCity)
-                                    {
-                                        if(InfectedCity.cityName == tupleElmt.Item2)
-                                        {
-
-                                        }
-                                        break;
-                                    }
-
-                                    /* Ubah Elemen City yang Terinfeksi */
-                               
-
-                                    
-                                }
-                            }
-                            break;
-                        }
+                    char newNeighbor = neighbor.neighborName;
+                    if (listOfCity.Find(x => x.cityName == newCity).infecting(listOfCity.Find(x => x.cityName == newCity).listOfNeighbor.Find(x => x.neighborName == newNeighbor))) {
+                        Tuple<char, char> newTuple = new Tuple<char, char>(newCity, newNeighbor);
+                        QueueBFS.Enqueue(newTuple);
                     }
-                    break;
                 }
+
 
             }
 
+            System.Console.Write("Queue : {");
+            foreach (Tuple<char,char> elmt in QueueBFS)
+            {
+                System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
+
+            }
+            System.Console.WriteLine("}");
             
         }
 
