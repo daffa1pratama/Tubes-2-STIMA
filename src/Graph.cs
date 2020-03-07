@@ -66,12 +66,11 @@ namespace src
         // PROPERTY
         public char neighborName { get; set; }
         public double travelProb { get; set; }
-        public bool infected { get; set; }
+        
         public void displayNeighbor()
         {
             System.Console.WriteLine("Neighbor Name: " + neighborName);
             System.Console.WriteLine("Travel Probability: " + travelProb);
-            System.Console.WriteLine("Infected: " + Convert.ToString(infected));
         }   
 
         // METHOD
@@ -81,18 +80,17 @@ namespace src
             this.travelProb = travelProb;
         }
 
-        public void isInfected(double infectedPopulation) //parameter city asal
-        {
-            double S = infectedPopulation * travelProb;
-            this.infected = false;
-            if (S > 1) 
-            {
-                this.infected = true;    
-                /* 
-                city.infectedDay = -4 * Math.log((city.population/infectedPopulation - 1) * (1/(x-1)));
-                */
-            }
-        }
+        // public void isInfected(double infectedPopulation) //parameter city asal
+        // {
+        //     double S = infectedPopulation * travelProb;
+        //     if (S > 1) 
+        //     {
+        //         this.infected = true;    
+        //         
+                //  city.infectedDay = -4 * Math.log((city.population/infectedPopulation - 1) * (1/(x-1)));
+                // 
+        //     }
+        // }
         
     }
 
