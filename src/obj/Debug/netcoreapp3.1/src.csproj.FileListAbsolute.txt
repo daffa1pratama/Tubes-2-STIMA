@@ -14,3 +14,9 @@ D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfoInput
 D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo.cs
 D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.dll
 D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.pdb
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.exe
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.deps.json
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.runtimeconfig.json
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.runtimeconfig.dev.json
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.dll
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.pdb
