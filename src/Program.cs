@@ -6,6 +6,9 @@ namespace src
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("========================= PLAGUE INC SIMULATOR ============================");
+            System.Console.WriteLine("Visualisasi Hari ke-berapa?");
+            System.Console.Write(">> ");
             int input = Convert.ToInt32(Console.ReadLine());
             Graph g = new Graph();
             FileHandler f = new FileHandler();

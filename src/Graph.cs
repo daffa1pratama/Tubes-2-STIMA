@@ -60,18 +60,12 @@ namespace src
 
         public int lamaInfeksi(Neighbor N)
         {
-            if (this.infectedPopulation == 0)
-            {
-                System.Console.WriteLine("asdasd");
-                return 0;    
-            }
-            double res = (-4 * Math.Log((this.population / this.infectedPopulation - 1) * (1 / (this.population - 1)), 2.781));
-            System.Console.WriteLine("this.population : " + this.population);
-            System.Console.WriteLine("this.infectedpopulation : " + this.infectedPopulation);
-            System.Console.WriteLine("lama INfeksi : " + res);
-            int result = Convert.ToInt32(res);
-            System.Console.WriteLine("lama INfeksi : " + result);
-            return  result;
+            int result = Convert.ToInt32(-4 * Math.Log(( (this.population * N.travelProb - 1) / (this.population - 1)), Math.Exp(1)));
+            System.Console.WriteLine("Populasi : " + this.population);
+            System.Console.WriteLine("Probability : " + N.travelProb);
+            // System.Console.WriteLine("Pembilang : " + this.population *);
+            System.Console.WriteLine("Lama Infeksi : " + result);
+            return result;
         }
     }
 
