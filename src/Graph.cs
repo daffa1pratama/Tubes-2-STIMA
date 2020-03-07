@@ -67,13 +67,17 @@ namespace src
             this.travelProb = travelProb;
         }
 
-        public void isInfected(double infectedPopulation)
+        public void isInfected(double infectedPopulation) //parameter city asal
         {
             double S = infectedPopulation * travelProb;
             System.Console.WriteLine(infectedPopulation);
             this.infected = false;
-            if (S > 1) {
-                this.infected = true;
+            if (S > 1) 
+            {
+                this.infected = true;    
+                /* 
+                city.infectedDay = -4 * Math.log((city.population/infectedPopulation - 1) * (1/(x-1)));
+                */
             }
         }
     }
