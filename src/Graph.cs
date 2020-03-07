@@ -46,6 +46,12 @@ namespace src
             }
         }
 
+        public bool infecting(Neighbor N)
+        {
+            double S = this.calcInfected() * N.travelProb;
+            return (S > 1);
+        }
+
     }
 
     class Neighbor
@@ -118,6 +124,7 @@ namespace src
         }
         public void BFS()
         {
+            /* Inisialisasi Queue Awal */
             Queue<Tuple<char,char>> QueueBFS = new Queue<Tuple<char,char>>();
             foreach (City city in listOfCity)
             {
@@ -131,6 +138,8 @@ namespace src
                 }
                 break;
             }
+
+            /* Debug Inisialisasi Queue Awal */
             System.Console.Write("Queue : (");
             foreach (Tuple<char,char> elmt in QueueBFS)
             {
@@ -139,7 +148,30 @@ namespace src
             }
             System.Console.WriteLine(")");
 
+            /* Proses BFS */
+            while(QueueBFS.Count != 0)
+            {
+                Tuple<char, char> tupleElmt = QueueBFS.Dequeue;
+                
+                foreach(City city in listOfCity)
+                {
+                    if(city.cityName == tupleElmt.Item1)
+                    {
+                        foreach(Neighbor neighbor in city.listOfNeighbor)
+                        {
+                            if(neighbor.neighborName == tupleElmt.Item2)
+                            {
+                                if(city.infecting())
+                            }
+                            break;
+                        }
+                    }
+                    break;
+                }
 
+            }
+
+            
         }
 
 
