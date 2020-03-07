@@ -9,22 +9,24 @@ namespace src
         public char cityName { get; set; } // Nama Kota ; A
         public double population { get; set; } // Populasi Kota ; P(A)
         public List<Neighbor> listOfNeighbor { get; set; } // Container Tetangga
-        public int infectedDay { get; set; } // Hari terinfeksi ; t(A)
+        public int infectedDay { get; set; } // Hari awal terinfeksi ; T(A)
+        public int infectedDuration {get; set;} // Durasi Terinfeksi hingga akhir perhitungan; t(A)
         public double infectedPopulation { get; set; } // Populasi yang terinfeksi
         public bool isVisited { get; set; } // Kondisi kota pernah dikunjungi
 
         // METHOD
-        public City(char cityName, double population)
+        public City(char cityName, double population, int infectedDay, int input)
         {
             this.listOfNeighbor = new List<Neighbor>();
             this.cityName = cityName;
             this.population = population;
-            this.infectedDay = 1;
+            this.infectedDay = infectedDay;
+            this.infectedDuration = input - this.infectedDay;
             this.infectedPopulation = calcInfected();
         }
         public double calcInfected()
         {
-            double temp = 1 + ((this.population - 1) * Math.Pow(2.7182, -0.25 * this.infectedDay));
+            double temp = 1 + ((this.population - 1) * Math.Exp(-0.25 * this.infectedDuration));
             return this.population / temp;
         }
 
@@ -62,20 +64,24 @@ namespace src
         // METHOD
         public Neighbor(char neighborName, double travelProb)
         {
-
             this.neighborName = neighborName;
             this.travelProb = travelProb;
         }
 
-        public void isInfected(double infectedPopulation)
+        public void isInfected(double infectedPopulation) //parameter city asal
         {
             double S = infectedPopulation * travelProb;
             System.Console.WriteLine(infectedPopulation);
             this.infected = false;
-            if (S > 1) {
-                this.infected = true;
+            if (S > 1) 
+            {
+                this.infected = true;    
+                /* 
+                city.infectedDay = -4 * Math.log((city.population/infectedPopulation - 1) * (1/(x-1)));
+                */
             }
         }
+        
     }
 
     class Graph 
@@ -110,6 +116,29 @@ namespace src
                 }
                 System.Console.WriteLine("=========================");
             }
+        }
+        public void BFS()
+        {
+            Queue<Tuple<char,char>> QueueBFS = new Queue<Tuple<char,char>>();
+            foreach (City city in listOfCity)
+            {
+                if (this.initialCity == city.cityName)
+                {
+                    foreach (Neighbor neighbor in city.listOfNeighbor)
+                    {
+                        var QueueElmt = Tuple.Create(city.cityName, neighbor.neighborName);
+                        QueueBFS.Enqueue(QueueElmt);
+                    }
+                }
+                break;
+            }
+            System.Console.Write("Queue : (");
+            foreach (Tuple<char,char> elmt in QueueBFS)
+            {
+                System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
+
+            }
+            System.Console.WriteLine(")");
         }
     }
 }

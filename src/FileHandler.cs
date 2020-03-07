@@ -38,7 +38,7 @@ namespace src
             foreach (string item in temp)
             {
                 string[] splitted = item.Split(' ');
-                City city = new City(Convert.ToChar(splitted[0]), Convert.ToDouble(splitted[1]));
+                City city = new City(Convert.ToChar(splitted[0]), Convert.ToDouble(splitted[1]),1,1);
                 g.listOfCity.Add(city);
             }
 

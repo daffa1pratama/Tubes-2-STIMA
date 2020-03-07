@@ -12,6 +12,7 @@ namespace src
             f.readGraph(g, "../doc/Graf.txt");
             g.printAll();
             Console.WriteLine("Hello World!");
+            g.BFS();
         }
     }
 }

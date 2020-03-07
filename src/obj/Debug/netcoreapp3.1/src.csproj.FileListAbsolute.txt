@@ -9,3 +9,14 @@ C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo
 C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo.cs
 C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.dll
 C:\Users\ASUS\Desktop\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.pdb
+D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.csprojAssemblyReference.cache
+D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfoInputs.cache
+D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.AssemblyInfo.cs
+D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.dll
+D:\Kuliah\Github\Tubes-2-STIMA\src\obj\Debug\netcoreapp3.1\src.pdb
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.exe
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.deps.json
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.runtimeconfig.json
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.runtimeconfig.dev.json
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.dll
+D:\Kuliah\Github\Tubes-2-STIMA\src\bin\Debug\netcoreapp3.1\src.pdb
