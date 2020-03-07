@@ -23,11 +23,10 @@ namespace src
             this.infectedDay = infectedDay;
             this.infectedDuration = input - this.infectedDay;
             this.infectedPopulation = calcInfected();
-            this.i
         }
         public double calcInfected()
         {
-            double temp = 1 + ((this.population - 1) * Math.Pow(Math.e, -0.25 * this.infectedDuration));
+            double temp = 1 + ((this.population - 1) * Math.Exp(-0.25 * this.infectedDuration));
             return this.population / temp;
         }
 
@@ -113,6 +112,29 @@ namespace src
                 }
                 System.Console.WriteLine("=========================");
             }
+        }
+        public void BFS()
+        {
+            Queue<Tuple<char,char>> QueueBFS = new Queue<Tuple<char,char>>();
+            foreach (City city in listOfCity)
+            {
+                if (this.initialCity == city.cityName)
+                {
+                    foreach (Neighbor neighbor in city.listOfNeighbor)
+                    {
+                        var QueueElmt = Tuple.Create(city.cityName, neighbor.neighborName);
+                        QueueBFS.Enqueue(QueueElmt);
+                    }
+                }
+                break;
+            }
+            System.Console.Write("Queue : (");
+            foreach (Tuple<char,char> elmt in QueueBFS)
+            {
+                System.Console.Write("<" + elmt.Item1 + "," + elmt.Item2 + ">");
+
+            }
+            System.Console.WriteLine(")");
         }
     }
 }
