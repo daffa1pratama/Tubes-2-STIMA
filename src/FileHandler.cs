@@ -21,7 +21,6 @@ namespace src
             {
                 string[] splitted = item.Split(' ');
                 Neighbor neighbor = new Neighbor(Convert.ToChar(splitted[1]), Convert.ToDouble(splitted[2]));
-                System.Console.WriteLine("DISINI");
                 neighbor.isInfected(g.listOfCity.Find(x => x.cityName == Convert.ToChar(splitted[0])).infectedPopulation);
                 g.listOfCity.Find(x => x.cityName == Convert.ToChar(splitted[0])).listOfNeighbor.Add(neighbor);
             }
@@ -44,7 +43,7 @@ namespace src
             }
 
             lines = lines[0].Split(' ');            
-            g.initialCity = Convert.ToChar(lines[1]);
+            Graph.initialCity = Convert.ToChar(lines[1]);
         }
     }
 }
